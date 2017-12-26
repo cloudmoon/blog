@@ -4,18 +4,16 @@ const mongoose = require('mongoose');
 require('dotenv').config({ path: 'variables.env' });
 
 // Connect to our Database and handle an bad connections
-// mongoose.connect(process.env.DATABASE);
-// mongoose.Promise = global.Promise;
-// mongoose.connection.on('error', (err) => {
-//   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
-// });
+mongoose.connect(process.env.DATABASE);
+mongoose.Promise = global.Promise;
+mongoose.connection.on('error', (err) => {
+  console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+});
 
 // READY?! Let's go!
 
 // import all of our models
-// require('./models/Store');
-// require('./models/User');
-// require('./models/Review');
+require('./models/user');
 
 // Start our app!
 const app = require('./app');

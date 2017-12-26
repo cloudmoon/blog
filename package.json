@@ -1,5 +1,6 @@
 {
-  "name": "blog-cloudmoon",
+  "name": "CodeBlog",
+  "description": "from cloudmoon",
   "version": "0.0.1",
   "private": true,
   "engines": {
