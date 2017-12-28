@@ -4,7 +4,10 @@ block content
   .ui.grid
     .four.wide.column
     .eight.wide.column
-      form.ui.form.segment(method="post")
+      form.ui.form.segment(action='/signup' method="post")
+        .field.required
+          label 邮箱
+          input(placeholder="邮箱" type="email" name="email")
         .field.required
           label 用户名
           input(placeholder="用户名" type="text" name="name")
@@ -25,5 +28,5 @@ block content
           //-input(type='file' name='avatar')
         .field
           label 个人介绍
-          textarea(name='bio' rows='5')
+          textarea(name='bio' rows='5') #{body && body.bio}
         input.ui.button.fluid(type='submit' value='注册')

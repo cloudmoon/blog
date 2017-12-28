@@ -3,7 +3,6 @@ node_modules/
 *.log
 .idea
 haters/
-public/
 variables.env
 variables.env.now
-*
+

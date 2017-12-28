@@ -27,7 +27,12 @@ router.post('/login', check.isNotLogin, authController.login)
 router.get('/logout', check.isLogin, authController.logout)
 
 router.get('/signup', check.isNotLogin, authController.signUpPage)
-router.post('/signup', check.isNotLogin, authController.signUp)
+router.post('/signup',
+  check.isNotLogin,
+  authController.validateRegister,
+  catchErrors(authController.signUp),
+  authController.login
+)
 
 
 module.exports = router

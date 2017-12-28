@@ -1,5 +1,5 @@
 exports.posts = async (req, res) => {
-  res.send('主页')
+  res.render('posts')
 }
 
 exports.createPost = async (req, res) => {

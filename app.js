@@ -1,5 +1,4 @@
 const express = require('express');
-
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
@@ -41,15 +40,14 @@ app.use(cookieParser());
 app.use(session({
   secret: process.env.SECRET,
   key: process.env.KEY,
-  httpOnly: true,
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // // Passport JS is what we use to handle our logins
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
 app.use(flash());
@@ -61,9 +59,9 @@ app.locals.blog = {
 // pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.h = helpers;
-  res.locals.flashes = req.flash();
-  res.locals.success = req.flash('success').toString()
-  res.locals.error = req.flash('error').toString()
+  // res.locals.flashes = req.flash();
+  res.locals.success = req.flash('success')
+  res.locals.error = req.flash('error')
   res.locals.user = req.user || null;
   res.locals.currentPath = req.path;
   next();

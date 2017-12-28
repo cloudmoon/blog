@@ -1,9 +1,19 @@
 .ui.grid
   .four.wide.column
   .eight.wide.column
-  if success
-    .ui.success.message
-      p #{success}
-  if error
-    .ui.error.message
-      p #{error}
+    if success
+      if success instanceof Array
+        each su in success
+          .ui.success.message(onClick="this.remove()")
+            p #{su}
+      else
+        .ui.success.message(onClick="this.remove()")
+          p #{success}
+    if error
+      if error instanceof Array
+        each e in error
+          .ui.error.message(onClick="this.remove()")
+            p #{e}
+      else
+        .ui.error.message(onClick="this.remove()")
+          p #{error}

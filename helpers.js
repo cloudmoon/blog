@@ -20,6 +20,10 @@ exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
 // Some details about the site
 exports.siteName = `cloud-moon`;
 
+exports.randomInt = (start, end) => {
+  return Math.floor(Math.random() * (end - start + 1) + start)
+}
+
 exports.menu = [
   { slug: '/stores', title: 'Stores', icon: 'store', },
   { slug: '/tags', title: 'Tags', icon: 'tag', },
