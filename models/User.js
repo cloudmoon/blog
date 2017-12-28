@@ -16,7 +16,6 @@ const userSchema = new Schema({
   },
   name: {
     type: String,
-    unique: true,
     required: '需填写昵称',
     trim: true
   },

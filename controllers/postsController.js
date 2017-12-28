@@ -1,13 +1,13 @@
 exports.posts = async (req, res) => {
-  res.render('posts')
+  res.render('posts', {title: '主页'})
 }
 
 exports.createPost = async (req, res) => {
   res.send('发表文章')
 }
 
-exports.createPostPage = async (req, res) => {
-  res.send('发表文章页')
+exports.createPostPage = (req, res) => {
+  res.render('create', {title: '发表文章'})
 }
 
 exports.onePost = async (req, res) => {

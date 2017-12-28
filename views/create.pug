@@ -1,0 +1,22 @@
+extends blog_layout
+block content
+  .ui.grid
+    .four.wide.column
+      a.avatar.avatar-link(
+      href=`/posts?author=${user._id}`
+      data-title=`${user.name} | ${{'m': '男', 'f': '女', 'o': '其他'}[user.gender]}`
+      data-content=`${user.bio}`
+      )
+        img.avatar(
+        src=`${user.avatar === 'avatar1.jpg' ? 'https://i.loli.net/2017/12/28/5a4504f88001f.jpg' : 'https://i.loli.net/2017/12/28/5a4504f91c550.jpg'}`
+        )
+
+    .eight.wide.column
+      form.ui.form.segment(method='post')
+        .field.required
+          label 标题
+          input(type='text' name='title')
+        .field.required
+          label 内容
+          textarea(name='content' rows='15')
+        input.ui.button(type='submit' value='发布')
