@@ -3,5 +3,4 @@ extends blog_layout
 include mixin/_post-component
 
 block content
-  each p in posts
-    +postComponent(p)
+  +postComponent(post)

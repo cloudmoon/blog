@@ -42,7 +42,7 @@ function contentsToHtml(posts) {
   }
 }
 
-postSchema.post('find', contentsToHtml)
-postSchema.post('findOne', contentToHtml)
+// postSchema.post('find', contentsToHtml)
+// postSchema.post('findOne', contentToHtml)
 
 module.exports = mongoose.model('Post', postSchema)

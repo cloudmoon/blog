@@ -1,0 +1,32 @@
+mixin postComponent(post={})
+  .post-content
+    .ui.grid
+      .four.wide.column
+        .four.wide.column
+          a.avatar.avatar-link(
+          href=`/posts?author=${post.author._id}`
+          data-title=`${post.author.name} | ${{'m': '男', 'f': '女', 'o': '其他'}[post.author.gender]}`
+          data-content=`${post.author.bio}`
+          )
+            img.avatar(
+            src=`${post.author.avatar === 'avatar1.jpg' ? 'https://i.loli.net/2017/12/28/5a4504f88001f.jpg' : 'https://i.loli.net/2017/12/28/5a4504f91c550.jpg'}`
+            )
+      .eight.wide.column
+        .ui.segment
+          h3
+            a(href=`/posts/${post._id}`) #{post.title}
+          pre!= post.content
+          .coolcoolcool
+            span.tag #{h.moment(post.created).format('YYYY-MM-DD hh:mm:ss')}
+            span.tag.right
+              span (浏览#{post.pv || 0})
+              span  (留言#{post.commentsCount || 0})
+              if (user && post.author._id && user._id.toString() === post.author._id.toString())
+                .ui.inline.dropdown
+                  .text
+                  i.dropdown.icon
+                  .menu
+                    .item
+                      a(href=`/posts/${post._id}/edit`) 编辑
+                    .item
+                      a(href=`/posts/${post._id}/remove`) 删除

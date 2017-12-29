@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+const Comment = mongoose.model('Comment')
+
 exports.addComments = async (req, res) => {
   res.send('add comments')
 }
