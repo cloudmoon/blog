@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const marked = require('marked')
 
 const postSchema = new mongoose.Schema({
   author: {
@@ -24,5 +25,24 @@ const postSchema = new mongoose.Schema({
     type: Number
   }
 })
+
+function contentToHtml(post) {
+  if (post) {
+    post.content = marked(post.content)
+  }
+  return post
+}
+
+function contentsToHtml(posts) {
+  if (posts) {
+    return posts.map((p) => {
+      p.content = marked(p.content)
+      return p
+    })
+  }
+}
+
+postSchema.post('find', contentsToHtml)
+postSchema.post('findOne', contentToHtml)
 
 module.exports = mongoose.model('Post', postSchema)
