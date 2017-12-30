@@ -5,7 +5,7 @@ exports.addComments = async (req, res) => {
   req.body.author = req.user._id
   const comment = await (new Comment(req.body)).save()
   req.flash('success', '留言成功')
-  res.json(comment)
+  res.redirect('back')
 }
 
 exports.removeComments = async (req, res) => {
@@ -17,6 +17,7 @@ exports.removeComments = async (req, res) => {
   }
   confirmOwner(comment, user)
   await Comment.remove({_id: cid}).exec()
+  req.flash('success', '删除留言成功')
   res.redirect('back')
 }
 

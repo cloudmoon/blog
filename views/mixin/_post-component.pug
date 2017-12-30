@@ -17,7 +17,7 @@ mixin postComponent(post={})
             a(href=`/posts/${post._id}`) #{post.title}
           pre!= post.content
           .coolcoolcool
-            span.tag #{h.moment(post.created).format('YYYY-MM-DD hh:mm:ss')}
+            span.tag #{h.moment(post.created).format('YYYY-MM-DD hh:mm:ss a')}
             span.tag.right
               span (浏览#{post.pv || 0})
               span  (留言#{post.commentsCount || 0})
