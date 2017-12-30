@@ -17,8 +17,8 @@ router.post('/posts/:id/edit', check.isLogin, catchErrors(postsController.editPo
 router.get('/posts/:id/remove', check.isLogin, catchErrors(postsController.removePost))
 
 // comments
-router.post('/comments', check.isLogin, commentsController.addComments)
-router.get('/comments/:id/remove', check.isLogin, commentsController.removeComments)
+router.post('/comments', check.isLogin, catchErrors(commentsController.addComments))
+router.get('/comments/:id/remove', check.isLogin, catchErrors(commentsController.removeComments))
 
 //authenticate
 router.get('/login', check.isNotLogin, authController.loginPage)

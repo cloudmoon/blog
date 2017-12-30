@@ -76,6 +76,9 @@ exports.removePost = async (req, res) => {
   const pid = req.params.id
   const user = req.user
   const post = await Post.findOne({_id: pid})
+  if (!post) {
+    throw Error('文章不存在')
+  }
   confirmOwner(post, user)
   await Post.remove({_id: pid}).exec()
   res.redirect('/posts')
