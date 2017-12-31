@@ -13,6 +13,8 @@ const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 const pkg = require('./package')
+const winston = require('winston')
+const expressWinston = require('express-winston')
 require('./handlers/passport');
 
 // create our Express app
@@ -73,8 +75,36 @@ app.use((req, res, next) => {
   next();
 });
 
+//log
+app.use(expressWinston.logger({
+  transports: [
+    new (winston.transports.Console)({
+      json: true,
+      colorize: true
+    }),
+    new winston.transports.File({
+      filename: 'logs/success.log'
+    })
+  ]
+}))
+
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);
+
+
+// error log
+app.use(expressWinston.errorLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      colorize: true
+    }),
+    new winston.transports.File({
+      filename: 'logs/error.log'
+    })
+  ]
+}))
+
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
