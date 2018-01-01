@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>flappy bird</title>
+        <style media="screen">
+            canvas {
+                border: 1px #0095dd dashed;
+            }
+            body {
+                padding-left: 200px;
+                padding-top: 60px;
+            }
+        </style>
+        <!--工具-->
+        <script src="game/util.js"></script>
+        <script src="game/game.js"></script>
+        <!--道具-->
+        <script src="material/image.js"></script>
+        <script src="material/land.js"></script>
+        <script src="material/sky.js"></script>
+        <script src="material/pipe.js"></script>
+        <script src="material/animation.js"></script>
+
+        <!--场景-->
+        <script src="scene/scene.js"></script>
+        <script src="scene/scene-title.js"></script>
+        <script src="scene/scene-main.js"></script>
+        <script src="scene/scene-end.js"></script>
+
+
+    </head>
+    <body>
+        <canvas id="id-canvas" width="500" height="600"></canvas>
+        <br>
+        <h3>J键 弹弹弹</h3>
+        <h6>WASD 任我行</h6>
+        <script src=main.js></script>
+
+    </body>
+</html>

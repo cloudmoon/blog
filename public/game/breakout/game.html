@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>break out</title>
+        <style media="screen">
+            canvas {
+                border: 1px #0095dd dashed;
+            }
+            body {
+                padding-left: 200px;
+                padding-top: 60px;
+            }
+        </style>
+        <!--工具-->
+        <script src="game/util.js"></script>
+        <script src="game/main.js"></script>
+        <!--道具-->
+        <script src="material/main.js"></script>
+        <script src="material/Paddle.js"></script>
+        <script src="material/Ball.js"></script>
+        <script src="material/Block.js"></script>
+        <!--场景-->
+        <script src="scene/scene-title.js"></script>
+        <script src="scene/scene-main.js"></script>
+        <script src="scene/scene-end.js"></script>
+
+        <!--关卡编辑-->
+        <script src="editor/main.js"></script>
+
+
+
+    </head>
+    <body>
+        <canvas id="id-canvas" width="500" height="300"></canvas>
+        <h3>A/D 键 控制左右 Z键暂停</h3>
+        <h3>游戏开始后 可修改下列参数</h3>
+        <form id="id-editor" action="">
+            <label for="id-block-row">砖块行数：</label>
+            <input type="text" id="id-block-row">
+            <label for="id-block-col">砖块列数：</label>
+            <input type="text" id="id-block-col">
+            <br>
+            <br>
+            <label for="id-ball">弹球速度：</label>
+            <input type="text" id="id-ball">
+
+            <label for="id-paddle">挡板速度：</label>
+            <input type="text" id="id-paddle">
+
+            <button id="id-confirm">确认修改</button>
+        </form>
+        <br>
+
+        <script src=main.js></script>
+
+    </body>
+</html>
