@@ -1,7 +1,7 @@
 # blog
 blog website based on nodejs
 
-基于node，使用了express + mongodb + es6 + jquery
+基于node，使用了express + mongodb + es6 + jquery + Semantic UI
 
 ·实现了多用户的登录注册，个人博客主页，文章详情的查看/编辑/评论等功能。
 
